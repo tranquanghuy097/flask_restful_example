@@ -26,7 +26,7 @@ class TestStudents(TestCase):
     def test_post(self):
         data = {'name' : 'Mark'}
         response = self.client.post('/students', data=json.dumps(data), headers={'Content-Type': 'application/json'})
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 200)
         response = self.client.get('/students')
         name = response.json[len(self.student_list)]["name"]
         assert name == data["name"]
